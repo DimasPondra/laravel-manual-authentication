@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,3 +40,7 @@ Route::post('/logout', [AuthController::class, 'logout'])
 Route::get('/dashboard', [DashboardController::class, 'index'])
      ->middleware('auth')
      ->name('dashboard');
+
+Route::get('product', [ProductController::class, 'index'])->name('product-index');
+Route::get('product/create', [ProductController::class, 'create'])->name('product-create');
+Route::post('product/create', [ProductController::class, 'store'])->name('product-store');
